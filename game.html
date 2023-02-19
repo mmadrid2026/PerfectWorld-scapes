@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Perfect World-scapes</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Press+Start+2P&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-image: url(pwbg.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            h1 {
+                font-family: 'Archivo Black', sans-serif;
+                text-align: center;
+                color: #41776D;
+                font-size: 60px;
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke-width: 2.5px;
+                -webkit-text-stroke-color: #39685f;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            #check {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 15px;
+                background-color: #377468;
+                border: 0;
+            }
+
+            #clear {
+                font-family: 'Press Start 2P', cursive;
+                font-size: 15px;
+                background-color: rgb(145, 49, 49);
+                border: 0;
+            }
+
+
+            #letter {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            #letter1 {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            #letter2 {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            #letter3 {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            #letter4 {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            #letter5 {
+                font-family: 'Press Start 2P', cursive;
+                background-color: #41776D;
+                border: 0;
+            }
+
+            .ul {
+                background-color: #39685f;
+            }
+
+            #type {
+                background-color: rgba(47, 129, 114, 0.4);
+                border-radius: 20px;
+                padding: 20px;
+
+                
+            }
+
+            #answerbox {
+                font-family: 'Archivo Black', sans-serif;
+                color: #07382f;
+                text-align: center;
+            }
+
+            .li {
+                font-family: 'Archivo Black', sans-serif;
+            }
+
+            
+
+        </style>
+    </head>
+    <body class="container p-5">
+        <div class="container fs-2">
+            <h1 class="text-center fw-normal">PERFECT WORLD-SCAPES</h1>
+            <div id="type">
+                <p class="text-center m-0" id="answerbox"></p>
+                <div>
+                    <button type="button" class="btn btn-success" id="check" onclick="check()">Check</button>
+                    <button type="button" class="btn btn-danger" id="clear" onclick="clearAnswers()">Clear</button>
+                </div>
+            </div>
+            <div class="d-flex justify-content-evenly m-2">
+                <div class="mx-2">
+                    <button type="button" class="btn btn-primary choice" id="letter">H</button>
+                    <button type="button" class="btn btn-primary choice" id="letter1">S</button>
+                    <button type="button" class="btn btn-primary choice" id="letter2">I</button>
+                    <button type="button" class="btn btn-primary choice" id="letter3">K</button>
+                    <button type="button" class="btn btn-primary choice" id="letter4">R</button>
+                    <button type="button" class="btn btn-primary choice" id="letter5">E</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ul class="list-group" id="answers">
+                
+            </ul>
+        </div>
+        <script>
+            const answers = ["RISE", "HIKE", "HIKERS", "HIKER", "SHIRK", "SIRE", "RISK", "SIR", "SKI", "SHIRE", "SHE", "HER", "HERS", "HIRE", "HIS", "SKIER", "SHRIEK", "HEIRS"]
+            
+            let answerbox = document.getElementById("answerbox")
+            let answerList = document.getElementById("answers")
+            let buttons = document.getElementsByClassName("choice")
+            
+            const enableButtons = () => {
+                for (let button of buttons) {
+                    button.disabled = false;
+                }
+            }
+            const check = () => {
+                if (answers.includes(answerbox.innerHTML)) {
+                    answerList.innerHTML += `<li class="list-group-item">${answerbox.innerHTML}</li>`
+                    answerbox.innerHTML = ""
+                    enableButtons()
+                } else {
+                    answerbox.innerHTML = ""
+                    enableButtons()
+                }
+            }
+            const clearAnswers = () => {
+                enableButtons()
+                answerbox.innerHTML = ""
+            }
+            for (let button of buttons) {
+                button.addEventListener("click", function() {
+                    answerbox.innerHTML += button.innerHTML
+                    button.disabled = true;
+                })
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </body>
+
+</html>
